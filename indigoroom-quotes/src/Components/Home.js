@@ -6,13 +6,16 @@ const Home = () => {
     // const name = "Vickie Valesquez";
     // const [name, setName] = useState('Vickie Valesquez');
     
-
+    
     const [quotes, setQuotes] = useState(null);
-    const [isLoading, setIsLoading] = useState(true)      
+    const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null);     
 
     useEffect(() => {
+      const abortCont = new AbortController();
+
       setTimeout(() => {
-        fetch('http://localhost:8000/quotes')
+        fetch('http://localhost:8000/quotes', { signal: abortCont.signal })
       .then(res => {
         if (!res.ok) {
           throw Error('Danger Will Robinson, could not fetch data');
@@ -22,17 +25,28 @@ const Home = () => {
       .then(data => {
         setQuotes(data);
         setIsLoading(false);
-
+        setError(null);
       })
-      .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
-      });
+      .catch(err => {
+        if (err.name === 'AbortError') {
+          console.log('fetch aborted')
+        } else {
+        setIsLoading(false);
+        setError(err.message);
+        }
+      })
       
       }, 1000);
+
+      return () => abortCont.abort();
+     
+
     }, []);
+
     
     return (
         <div className="home">
+          { error && <div>{ error }</div> }
           {isLoading && <div>LOADING...</div>}
             {quotes && <QuotesList quotes={ quotes} title="All Quotes" />}
             {/* {quotes && <QuotesList quotes={ quotes.filter((quote) => quote.author ==='Neville Goddard')} title="Neville Quotes" handleDelete={handleDelete} />} */}
@@ -50,6 +64,7 @@ const Home = () => {
             </div> */}
         </div>
     );
-}
+};
+  
  
 export default Home;
