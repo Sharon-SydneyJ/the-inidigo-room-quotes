@@ -3,10 +3,11 @@ import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import PostQuotes from './Components/PostQuotes';
+import QuotesContainer from './Components/QuotesContainer';
 
 
 function App() {
-  const title = 'Welcome to Imagination Station';
+  const title = 'Welcome to The Indigo Room Quotes';
 
   return (
     <Router>
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/postquotes">
             <PostQuotes />
+          </Route>
+          <Route path="/quotes/:id">
+          <QuotesContainer />
           </Route>
         </Switch>
       </div>
