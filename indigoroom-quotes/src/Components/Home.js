@@ -8,7 +8,7 @@ const Home = () => {
     
     
     const [quotes, setQuotes] = useState(null);
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);     
 
     useEffect(() => {
