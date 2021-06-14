@@ -3,7 +3,7 @@ import QuotesList from './QuotesList';
 
 const Home = () => {
   // testing useState under photo on home page
-    // const name = "Vickie Valesquez";
+    const name = "Vickie Valesquez";
     // const [name, setName] = useState('Vickie Valesquez');
     
     
@@ -48,20 +48,19 @@ const Home = () => {
         <div className="home">
           { error && <div>{ error }</div> }
           {isLoading && <div>LOADING...</div>}
-            {quotes && <QuotesList quotes={ quotes} title="All Quotes" />}
-            {/* {quotes && <QuotesList quotes={ quotes.filter((quote) => quote.author ==='Neville Goddard')} title="Neville Quotes" handleDelete={handleDelete} />} */}
+            {quotes && <QuotesList quotes={ quotes} title="All Quotes Below:" />}
+          
          
 
             {/* testing Image on home page. and clickMe button */}
             
 
-            {/* <h2>Homepage</h2> */}
-            {/* <div className="image">
+            <div className="image">
                 <img src="https://sydneychase.files.wordpress.com/2012/03/neville.jpg" alt="Neville Created by Vickie Valesquez"
                 />
                 <p>Image Created by: { name } for The Indigo Room</p>
-                <button onClick={handleCick}>Click Me Test</button>
-            </div> */}
+                
+            </div>
         </div>
     );
 };
