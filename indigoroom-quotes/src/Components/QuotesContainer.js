@@ -43,7 +43,7 @@ const QuotesContainer = () => {
       }, []);
 
       const handleCick= () => {
-          fetch('http://localhost:8000/quotes/' + id, {
+          fetch('https://indigoroom.herokuapp.com/quotes/' + id, {
               method: `DELETE`
           }).then(() => {
               history.push('/');
