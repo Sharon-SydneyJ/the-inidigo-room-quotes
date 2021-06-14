@@ -1,12 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
+
 
 const QuotesContainer = () => {
 
-    const { id } = useParams()
+    const { id } = useParams();
     const [quotes, setQuotes] = useState(null);
     const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState(null);   
+    const [error, setError] = useState(null);
+    const history = useHistory();
+
     
     useEffect(() => {
         const abortCont = new AbortController();
@@ -39,6 +42,16 @@ const QuotesContainer = () => {
 
       }, []);
 
+      const handleCick= () => {
+          fetch('http://localhost:8000/quotes/' + id, {
+              method: `DELETE`
+          }).then(() => {
+              history.push('/');
+
+          })
+
+      }
+
     return (
         <div className="quotes-container">
            { error && <div>{ error }</div> }
@@ -49,7 +62,8 @@ const QuotesContainer = () => {
                     <p>Written by { quotes.author }</p>
                     <div>{ quotes.body }</div>
                     <img src={quotes.image} alt="" />
-                <button className="like-btn">Like {"<3"}</button>
+                    <button onClick={ handleCick }>Delete</button>
+                
                 
                 </article>
                 
