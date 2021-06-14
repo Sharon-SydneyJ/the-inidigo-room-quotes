@@ -40,7 +40,7 @@ const QuotesContainer = () => {
   
         return () => abortCont.abort();
 
-      }, []);
+      }, [id]);
 
       const handleCick= () => {
           fetch('https://indigoroom.herokuapp.com/quotes/' + id, {
