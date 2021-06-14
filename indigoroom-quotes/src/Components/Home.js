@@ -15,7 +15,7 @@ const Home = () => {
       const abortCont = new AbortController();
 
       setTimeout(() => {
-        fetch('http://localhost:8000/quotes', { signal: abortCont.signal })
+        fetch('https://indigoroom.herokuapp.com/quotes', { signal: abortCont.signal })
       .then(res => {
         if (!res.ok) {
           throw Error('Danger Will Robinson, could not fetch data');
