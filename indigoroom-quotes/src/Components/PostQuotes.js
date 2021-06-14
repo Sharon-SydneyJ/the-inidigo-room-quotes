@@ -7,11 +7,29 @@ const PostQuotes = () => {
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('');
     const [image, setImage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const quote = { title, body, author, image };
+
+        setIsLoading(true);
+
+        fetch('http://localhost:8000/quotes', {
+            method: `POST`,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(quote)
+        }).then(() => {
+            console.log('new quote posted');
+            setIsLoading(false);
+        })
+
+    }
     
     return (
         <div className="post-quotes">
             <h2>Add Your own Quotes Here</h2>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <label>Quote title:</label>
                 <input 
                 type="text"
@@ -53,7 +71,8 @@ const PostQuotes = () => {
                 />
                 <br />
                 <br />
-                <button>Submit Your Quote</button>
+                { !isLoading && <button>Submit Your Quote</button>}
+                { isLoading && <button disabled>Submitting Your Quote...</button>}
                 <p>{ title }</p>
                 <p>{ body }</p>
                 <p>{ author }</p>
