@@ -10,6 +10,7 @@ function App() {
   const title = 'Welcome to The Indigo Room Quotes';
 
   return (
+  
     <Router>
     <div className="App">
       <h1>{ title }</h1>
