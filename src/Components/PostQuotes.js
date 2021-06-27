@@ -22,6 +22,7 @@ const PostQuotes = () => {
         }).then(() => {
             console.log('new quote posted');
             setIsLoading(false);
+           
         })
 
     }
@@ -29,6 +30,9 @@ const PostQuotes = () => {
     return (
         <div className="post-quotes">
             <h2>Add Your own Quotes Here</h2>
+            <p>Type your quote information in the input fields below. <br />
+            Next click submit when completed. <br />
+            Then home above, scroll down, to view your newly submitted quote. </p>
             <br />
             
             <form onSubmit={ handleSubmit }>
@@ -67,7 +71,7 @@ const PostQuotes = () => {
                  <label> Quote image:</label>
                 <input
                 type="text"
-                placeholder="Enter a quote's image URL..."
+                placeholder="Enter an image URL(optional)..."
                 value={ image }
                 onChange={(e) => setImage(e.target.value)}
                 />
