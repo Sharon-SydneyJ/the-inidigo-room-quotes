@@ -60,7 +60,7 @@ const PostQuotes = () => {
                 <label>Quote author:</label>
                 <input
                 type="text"
-                placeholder="Enter the Quote Author..."
+                placeholder="Enter Quote Author..."
                 required
                 value={ author }
                 onChange={(e) => setAuthor(e.target.value)}
@@ -71,7 +71,7 @@ const PostQuotes = () => {
                  <label> Quote image:</label>
                 <input
                 type="text"
-                placeholder="Enter an image URL(optional)..."
+                placeholder="Enter image URL(optional)..."
                 value={ image }
                 onChange={(e) => setImage(e.target.value)}
                 />
