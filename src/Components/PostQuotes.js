@@ -31,8 +31,8 @@ const PostQuotes = () => {
         <div className="post-quotes">
             <h2>Add Your own Quotes Here</h2>
             <p>Type your quote information in the input fields below. <br />
-            Next click submit when completed. <br />
-            Then home above, scroll down, to view your newly submitted quote. </p>
+            Next, click the "Submit Your Quote" button when completed. <br />
+            Finally, click the home link above; scroll down to view and click your newly submitted quote. </p>
             <br />
             
             <form onSubmit={ handleSubmit }>
