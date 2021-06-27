@@ -10,12 +10,15 @@ function App() {
   const title = 'Welcome to The Indigo Room Quotes';
 
   return (
-  
+    
     <Router>
-    <div className="App">
-      <h1>{ title }</h1>
-       <Navbar /> 
-      <div className="content">
+    <div className="container">
+      <h1 className="text-center">{ title }</h1>
+      <div className="container">
+      <Navbar /> 
+      </div>
+      
+      <div className="container">
         <Switch>
           <Route exact path="/">
             <Home />
@@ -30,7 +33,11 @@ function App() {
       </div>
     </div>
     </Router>
+
   );
+
+  
 }
+
 
 export default App;

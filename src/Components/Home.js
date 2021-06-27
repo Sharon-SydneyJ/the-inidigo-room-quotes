@@ -45,25 +45,32 @@ const Home = () => {
 
     
     return (
-        <div className="home">
-          { error && <div>{ error }</div> }
-          {isLoading && <div>LOADING...</div>}
-            {quotes && <QuotesList quotes={ quotes} title="All Quotes Below:" />}
-          
-         
+      <div className="home">
+      <div className="container-md">
+       <img src="https://sydneychase.files.wordpress.com/2012/03/neville.jpg" 
+       className="border border-5 shadow p-3 rounded mx-auto d-block" alt="Neville Created by Vickie Valesquez"
+       />
+       <p className="text-center">Image Created by: { name } for The Indigo Room</p>
+       
 
-            {/* testing Image on home page. and clickMe button */}
-            
-
-            <div className="image">
-                <img src="https://sydneychase.files.wordpress.com/2012/03/neville.jpg" alt="Neville Created by Vickie Valesquez"
-                />
-                <p>Image Created by: { name } for The Indigo Room</p>
-                
-            </div>
-        </div>
-    );
-};
+ { error && <div>{ error }</div> }
+ {isLoading && <div>LOADING...</div>}
+ <div className="cards">
+<div class="card border-dark mb-3">
   
+   {quotes && <QuotesList quotes={ quotes} title="All Quotes Below:" />}
+
+
+   {/* testing Image on home page. and clickMe button */}
+   </div>
+   </div>
+   
+
+   
+</div>
+</div>
+);
+};
+
  
 export default Home;

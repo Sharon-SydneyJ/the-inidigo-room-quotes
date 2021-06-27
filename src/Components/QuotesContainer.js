@@ -53,24 +53,28 @@ const QuotesContainer = () => {
       }
 
     return (
-        <div className="quotes-container">
-           { error && <div>{ error }</div> }
-          { isLoading && <div>LOADING...</div> }
-            {quotes && (
-                <article>
-                    <h2>{ quotes.title}</h2>
-                    <p>Written by { quotes.author }</p>
-                    <div>{ quotes.body }</div>
-                    <img src={quotes.image} alt="" />
-                    <button onClick={ handleCick }>Delete</button>
-                
-                
-                </article>
-                
+      <div className="container">
+      { error && <div>{ error }</div> }
+     { isLoading && <div>LOADING...</div> }
+       {quotes && (
+           <article>
+               <h2>{ quotes.title}</h2>
+               <p>Written by: { quotes.author }</p>
+               <div class="text md-start">{ quotes.body }</div>
                
-            )}
-             </div>
-    );
+               <img src={quotes.image} class="rounded img-thumbnail w-50 p-3" alt="" />
+               
+               <button onClick={ handleCick }>Delete</button>
+           
+           
+           </article>
+           
+          
+           
+       )}
+        </div>
+);
 }
+
  
 export default QuotesContainer;

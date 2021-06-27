@@ -29,8 +29,10 @@ const PostQuotes = () => {
     return (
         <div className="post-quotes">
             <h2>Add Your own Quotes Here</h2>
+            <br />
+            
             <form onSubmit={ handleSubmit }>
-                <label>Quote title:</label>
+                <label class="form-label">Quote title:</label>
                 <input 
                 type="text"
                 placeholder="Type quote title here ..."
@@ -41,8 +43,8 @@ const PostQuotes = () => {
                 <br />
                 <br />
 
-                <label>Quote body:</label>
-                <textarea
+                <label for="exampleFormControlTextarea1" class="form-label">Quote body:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
                 placeholder="Type your quote here ..."
                   required
                   value={ body }
